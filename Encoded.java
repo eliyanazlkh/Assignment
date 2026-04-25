@@ -7,6 +7,10 @@ public class Encoded {
     // Default constructor
     public Encoded() {}
 
+    public Encoded(String inputText) {
+        this.inputText = inputText;
+    }
+
     public String getInputText() { return inputText; }
     public int getCharCount() { return charCount; }
     public String getResultText() { return resultText; }
