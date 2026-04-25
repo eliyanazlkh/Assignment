@@ -6,7 +6,6 @@ public class Assignment extends JFrame {
     private JTextField inputField;
     private JButton encodeButton;
     private JLabel charCountLabel;
-    private JLabel groupShiftLabel;
     private JLabel finalShiftLabel;
     private JTextArea resultArea;
     private JLabel statusLabel;
@@ -38,9 +37,6 @@ public class Assignment extends JFrame {
         
         charCountLabel = new JLabel("Non-space characters: -");
         centerPanel.add(charCountLabel);
-        
-        groupShiftLabel = new JLabel("Group shift: -");
-        centerPanel.add(groupShiftLabel);
         
         finalShiftLabel = new JLabel("Final shift: -");
         centerPanel.add(finalShiftLabel);
@@ -82,19 +78,18 @@ public class Assignment extends JFrame {
             int finalShift = groupShift + charCount;
             
             charCountLabel.setText("Non-space characters: " + charCount);
-            groupShiftLabel.setText("Group shift: " + groupShift);
-            finalShiftLabel.setText("Final shift: " + groupShift + " + " + charCount + " = " + finalShift);
+            finalShiftLabel.setText("Final shift: " + finalShift);
             
             resultArea.setText("Output:\n" + encoder.getResultText());
             statusLabel.setText("Success!");
             statusLabel.setForeground(Color.GREEN);
         } else {
             charCountLabel.setText("Non-space characters: -");
-            groupShiftLabel.setText("Group shift: -");
             finalShiftLabel.setText("Final shift: -");
             resultArea.setText("Output:");
             statusLabel.setText("Invalid input: use only a-z, 0-9, spaces.");
             statusLabel.setForeground(Color.RED);
+            JOptionPane.showMessageDialog(this, "Invalid input. Please use only lowercase letters (a-z), digits (0-9), and spaces.", "Input Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
